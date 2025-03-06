@@ -92,6 +92,12 @@ class GildedRoseTest {
         };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
+        assertEquals(9,app.items[0].sellIn);
+        assertEquals(1,app.items[0].quality);
+        assertEquals(-1,app.items[1].sellIn);
+        assertEquals(-3,app.items[1].quality);
+        assertEquals(-3,app.items[2].sellIn);
+        assertEquals(0,app.items[2].quality);
     }
 
 }
