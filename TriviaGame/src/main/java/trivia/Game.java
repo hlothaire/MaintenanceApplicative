@@ -87,28 +87,28 @@ public class Game implements IGame {
    }
 
    private void askQuestion() {
-      if (currentCategory() == "Pop")
+      if (currentCategory() == Categories.POP.toString())
          System.out.println(popQuestions.removeFirst());
-      if (currentCategory() == "Science")
+      if (currentCategory() == Categories.SCIENCE.toString())
          System.out.println(scienceQuestions.removeFirst());
-      if (currentCategory() == "Sports")
+      if (currentCategory() == Categories.SPORTS.toString())
          System.out.println(sportsQuestions.removeFirst());
-      if (currentCategory() == "Rock")
+      if (currentCategory() == Categories.ROCK.toString())
          System.out.println(rockQuestions.removeFirst());
    }
 
 
    private String currentCategory() {
-      if (places[currentPlayer] - 1 == 0) return "Pop";
-      if (places[currentPlayer] - 1 == 4) return "Pop";
-      if (places[currentPlayer] - 1 == 8) return "Pop";
-      if (places[currentPlayer] - 1 == 1) return "Science";
-      if (places[currentPlayer] - 1 == 5) return "Science";
-      if (places[currentPlayer] - 1 == 9) return "Science";
-      if (places[currentPlayer] - 1 == 2) return "Sports";
-      if (places[currentPlayer] - 1 == 6) return "Sports";
-      if (places[currentPlayer] - 1 == 10) return "Sports";
-      return "Rock";
+      if (places[currentPlayer] - 1 == 0) return Categories.POP.toString();
+      if (places[currentPlayer] - 1 == 4) return Categories.POP.toString();
+      if (places[currentPlayer] - 1 == 8) return Categories.POP.toString();
+      if (places[currentPlayer] - 1 == 1) return Categories.SCIENCE.toString();
+      if (places[currentPlayer] - 1 == 5) return Categories.SCIENCE.toString();
+      if (places[currentPlayer] - 1 == 9) return Categories.SCIENCE.toString();
+      if (places[currentPlayer] - 1 == 2) return Categories.SPORTS.toString();
+      if (places[currentPlayer] - 1 == 6) return Categories.SPORTS.toString();
+      if (places[currentPlayer] - 1 == 10) return Categories.SPORTS.toString();
+      return Categories.ROCK.toString();
    }
 
    public boolean handleCorrectAnswer() {
@@ -135,7 +135,7 @@ public class Game implements IGame {
 
       } else {
 
-         System.out.println("Answer was corrent!!!!");
+         System.out.println("Answer was correct!!!!");
          purses[currentPlayer]++;
          System.out.println(players.get(currentPlayer)
                             + " now has "
