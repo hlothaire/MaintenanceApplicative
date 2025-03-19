@@ -11,4 +11,9 @@ public class EventRDV extends Event {
     public String description() {
         return "RDV : " + title.getTitre() + " à " + dateDebut.getDateDebut().toString();
     }
+
+    @Override
+    public Boolean dansPeriode(DateEvenement debut, DateEvenement fin) {
+        return dateDebut.isBetween(debut, fin);
+    }
 }

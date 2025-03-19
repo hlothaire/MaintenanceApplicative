@@ -1,5 +1,7 @@
 package event;
 
+import java.time.LocalDateTime;
+
 public class EventReunion extends Event {
 
     private final LieuEvenement lieu;
@@ -16,5 +18,10 @@ public class EventReunion extends Event {
     @Override
     public String description() {
         return "Réunion : " + title.getTitre() + " à " + lieu.getLieu() + " avec " + participants.getParticipant();
+    }
+
+    @Override
+    public Boolean dansPeriode(DateEvenement debut, DateEvenement fin) {
+        return dateDebut.isBetween(debut, fin);
     }
 }
