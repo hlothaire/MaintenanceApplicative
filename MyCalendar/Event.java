@@ -2,16 +2,17 @@ import java.time.LocalDateTime;
 
 public class Event {
     public String type; // "RDV_PERSONNEL", "REUNION", "PERIODIQUE"
-    public String title;
-    public String proprietaire;
-    public LocalDateTime dateDebut;
-    public int dureeMinutes;
-    public String lieu; // utilisé seulement pour REUNION
-    public String participants; // séparés par virgules (pour REUNION uniquement)
-    public int frequenceJours; // uniquement pour PERIODIQUE
+    public TitreEvenement title;
+    public PropietaireEvenement proprietaire;
+    public DateEvenement dateDebut;
+    public DureeEvenement dureeMinutes;
+    public LieuEvenement lieu; // utilisé seulement pour REUNION
+    public ParticipantsEvenement participants; // séparés par virgules (pour REUNION uniquement)
+    public FrequenceEvenement frequenceJours; // uniquement pour PERIODIQUE
 
-    public Event(String type, String title, String proprietaire, LocalDateTime dateDebut, int dureeMinutes,
-                 String lieu, String participants, int frequenceJours) {
+    public Event(String type, TitreEvenement title, PropietaireEvenement proprietaire, DateEvenement dateDebut,
+                 DureeEvenement dureeMinutes, LieuEvenement lieu, ParticipantsEvenement participants,
+                 FrequenceEvenement frequenceJours) {
         this.type = type;
         this.title = title;
         this.proprietaire = proprietaire;
