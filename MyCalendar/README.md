@@ -4,17 +4,17 @@ Gestionnaire d'Événements & Calendrier
 
 ## 🎯 Objectifs du TP :
 Mettre en pratique la démarche Test-Driven Development (TDD).  
-Appliquer des principes propres à la maintenance applicative en faisant évoluer une base de code existante.  
+Appliquer des principes propres à la maintenance applicative en faisant évoluer une base de code existante.
 
 Pour pimenter un peu les choses, il y aura quelques petites contraintes:
 - Utiliser exclusivement des Value Objects  
-// interdiction d'utiliser des primitives nues  
+  // interdiction d'utiliser des primitives nues
 - Implémenter une solution reposant sur le polymorphisme  
-// interdiction d'utiliser des conditionnels (if, switch, opérateur ternaire).
+  // interdiction d'utiliser des conditionnels (if, switch, opérateur ternaire).
 
 
 ## 📌 Contexte du TP :
-Votre supérieur, fan de *COBOL* et "autodicacte" a dévellopé un projet nommé **« *CalendarManager* »** (oui, une application avec un nom anglais, c'est plus classe), une application minimaliste de gestion d’événements et rendez-vous. Il n'a pas du tout confiance en l'utilisation de code externe (il a déjà fallu batailler pour passer aux fax...), donc il n'est même pas la peine de lui proposer une autre solution, même éprouvée. 
+Votre supérieur, fan de *COBOL* et "autodicacte" a dévellopé un projet nommé **« *CalendarManager* »** (oui, une application avec un nom anglais, c'est plus classe), une application minimaliste de gestion d’événements et rendez-vous. Il n'a pas du tout confiance en l'utilisation de code externe (il a déjà fallu batailler pour passer aux fax...), donc il n'est même pas la peine de lui proposer une autre solution, même éprouvée.
 
 L’application souffre d’une mauvaise conception initiale (utilisation excessive de primitives, couplage fort, répétitions de conditionnels, etc.).
 
@@ -34,7 +34,7 @@ Chaque fonctionnalité doit être écrite en suivant strictement la démarche TD
 
 ### Interdiction des primitives nues :
 Toutes les données métier (dates, heures, durées, titres, lieux) doivent être représentées par des Value Objects immuables.
-Exemples obligatoires de Value Objects : 
+Exemples obligatoires de Value Objects :
 - DateEvenement,
 - HeureDebut,
 - DureeEvenement,
@@ -52,9 +52,9 @@ Tout comportement variant doit être géré par le polymorphisme via des interfa
 
 Le calendrier permet d'ajouter différents types d'événements, notamment :
 
-- Rendez-vous personnels : simples, avec une date, une heure de début, une durée, un titre.  
-- Réunions : avec des participants et un lieu.  
-- Événements périodiques : répétitifs à fréquence fixe (hebdomadaire, mensuelle, annuelle).  
+- Rendez-vous personnels : simples, avec une date, une heure de début, une durée, un titre.
+- Réunions : avec des participants et un lieu.
+- Événements périodiques : répétitifs à fréquence fixe (hebdomadaire, mensuelle, annuelle).
 - Chaque événement peut générer une description textuelle spécifique à son type, sans utiliser de conditions explicites.
 
 
@@ -86,7 +86,7 @@ Respect strict des contraintes techniques :
 
 
 ## 🚀 Suggestions d’évolution ultérieure possible (non obligatoire mais bonus) :
-- Sérialisation/Désérialisation vers JSON. **+1** 
+- Sérialisation/Désérialisation vers JSON. **+1**
 - Ajout d'une interface utilisateur minimale. **+3**
 - Une idée, ben go, fait des beaux commits et je verrais bien ce que ça vaut. **+X**
 

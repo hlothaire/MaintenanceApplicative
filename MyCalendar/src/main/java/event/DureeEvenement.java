@@ -1,3 +1,5 @@
+package event;
+
 public class DureeEvenement {
 
     private final int duree;

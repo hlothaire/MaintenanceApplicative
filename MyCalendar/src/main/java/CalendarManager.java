@@ -1,3 +1,5 @@
+import event.*;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,9 +11,9 @@ public class CalendarManager {
         this.events = new ArrayList<>();
     }
 
-    public void ajouterEvent(String type, TitreEvenement title, PropietaireEvenement proprietaire, DateEvenement dateDebut, DureeEvenement dureeMinutes,
-                             LieuEvenement lieu, ParticipantsEvenement participants, FrequenceEvenement frequenceJours) {
-        Event e = new Event(type, title, proprietaire, dateDebut, dureeMinutes, lieu, participants, frequenceJours);
+    public void ajouterEvent(String type, TitreEvenement title, PropietaireEvenement proprietaire,
+                             DateEvenement dateDebut, DureeEvenement dureeMinutes) {
+        Event e = new Event(type, title, proprietaire, dateDebut, dureeMinutes);
         events.add(e);
     }
 
