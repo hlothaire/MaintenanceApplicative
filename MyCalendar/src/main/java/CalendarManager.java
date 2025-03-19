@@ -1,58 +1,27 @@
 import event.*;
 
-import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
 public class CalendarManager {
-    public List<Event> events;
+    public Evenements evenements;
 
     public CalendarManager() {
-        this.events = new ArrayList<>();
+        this.evenements = new Evenements();
     }
 
-    public void ajouterEvent(String type, TitreEvenement title, PropietaireEvenement proprietaire,
-                             DateEvenement dateDebut, DureeEvenement dureeMinutes) {
-        Event e = new Event(type, title, proprietaire, dateDebut, dureeMinutes);
-        events.add(e);
+    public void ajouterEvent(Event event) {
+        this.evenements.ajouterEvenement(event);
     }
 
-    public List<Event> eventsDansPeriode(LocalDateTime debut, LocalDateTime fin) {
-        List<Event> result = new ArrayList<>();
-        for (Event e : events) {
-            if (e.type.equals("PERIODIQUE")) {
-                LocalDateTime temp = e.dateDebut.getDateDebut();
-                while (temp.isBefore(fin)) {
-                    if (!temp.isBefore(debut)) {
-                        result.add(e);
-                        break;
-                    }
-                    temp = temp.plusDays(e.frequenceJours.getFrequence());
-                }
-            } else if (!e.dateDebut.getDateDebut().isBefore(debut) && !e.dateDebut.getDateDebut().isAfter(fin)) {
-                result.add(e);
-            }
-        }
-        return result;
+    public List<Event> eventsDansPeriode(DateEvenement debut, DateEvenement fin) {
+        return evenements.eventDansPeriode(debut,fin);
     }
 
     public boolean conflit(Event e1, Event e2) {
-        LocalDateTime fin1 = e1.dateDebut.getDateDebut().plusMinutes(e1.dureeMinutes.getDuree());
-        LocalDateTime fin2 = e2.dateDebut.getDateDebut().plusMinutes(e2.dureeMinutes.getDuree());
-
-        if (e1.type.equals("PERIODIQUE") || e2.type.equals("PERIODIQUE")) {
-            return false; // Simplification abusive
-        }
-
-        if (e1.dateDebut.getDateDebut().isBefore(fin2) && fin1.isAfter(e2.dateDebut.getDateDebut())) {
-            return true;
-        }
-        return false;
+        return e1.conflit(e2);
     }
 
     public void afficherEvenements() {
-        for (Event e : events) {
-            System.out.println(e.description());
-        }
+        evenements.afficher();
     }
 }
