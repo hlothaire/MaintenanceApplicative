@@ -1,4 +1,4 @@
-import event.*;
+package event;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ public class CalendarManager {
         this.evenements.ajouterEvenement(event);
     }
 
-    public List<Event> eventsDansPeriode(DateEvenement debut, DateEvenement fin) {
+    public Evenements eventsDansPeriode(DateEvenement debut, DateEvenement fin) {
         return evenements.eventDansPeriode(debut,fin);
     }
 

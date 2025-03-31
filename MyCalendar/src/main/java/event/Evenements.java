@@ -20,8 +20,8 @@ public class Evenements {
         events.forEach(e -> System.out.println(e.description()));
     }
 
-    public List<Event> eventDansPeriode(DateEvenement debut, DateEvenement fin) {
-        return events.stream()
+    public Evenements eventDansPeriode(DateEvenement debut, DateEvenement fin) {
+        return (Evenements) events.stream()
                 .filter(e -> e.dansPeriode(debut,fin))
                 .collect(Collectors.toList());
     }
